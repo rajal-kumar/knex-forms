@@ -13,4 +13,14 @@ router.get('/', function (req, res) {
     })
 })
 
+router.post('/add', function (req, res) {
+  db.addUser(req.body, req.app.get('connection'))
+  .then(function (user) {
+    res.redirect('/')
+  })
+})
+
+
+
+
 module.exports = router
